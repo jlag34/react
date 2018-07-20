@@ -6,12 +6,14 @@ const VENDOR_LIBS = [ 'react', 'react-dom' ];
 
 module.exports = {
   entry: {
-    bundle: './src/index.js',
+    bundle: './client/src/index.jsx',
     vendor: VENDOR_LIBS
   },
   output: {
-    path: path.join(__dirname, '/../../../bf/plugins/salesapp/widget'),
-    filename: '[name].[chunkhash].js'
+    chunkFilename: '[name].[chunkhash].js',
+    filename: '[name].[chunkhash].js',
+    path: path.join(__dirname, 'dist'),
+    publicPath: '/'
   },
   module: {
     rules: [
