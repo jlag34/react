@@ -9,6 +9,9 @@
     "postinstall": "npm start",
     "start": "npm run clean && NODE_ENV=production && webpack -p --progress"
   },
+  "engines": {
+    "node": "8.9.0"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
