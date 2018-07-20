@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf dist",
     "dev": "nodemon server.js",
     "postinstall": "npm start",
     "start": "npm run clean && NODE_ENV=production && webpack -p --progress"
@@ -32,6 +33,7 @@
     "react-stripe-elements": "^2.0.1",
     "redux": "^4.0.0",
     "redux-promise": "^0.5.3",
+    "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.13.1",
     "styled-components": "^3.3.3",
