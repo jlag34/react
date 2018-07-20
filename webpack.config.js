@@ -48,7 +48,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new HtmlWebpackPlugin({
-      template: './client/src/index.html'
+      template: './src/index.html'
     }),
     // new webpack.HotModuleReplacementPlugin()
   ],
