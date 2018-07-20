@@ -1,0 +1,58 @@
+.checkout-credit-card-wrapper {
+
+  .display-flex.space-between {
+    > div {
+      width: 50%
+    }
+  }
+
+  .stripe-el {
+    border-bottom: 1px solid rgba(255,255,255, .3);
+    padding-bottom: 1.5%;
+  }
+}
+
+
+.big-card {
+  height: 10rem;
+  margin-bottom: 1.5rem;
+}
+
+.text-customer-wrapper {
+  color: #FFFFFF;
+  font-size: 125%;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.text-customer-btn-wrapper {
+  bottom: 0;
+  margin-bottom: 2rem;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+
+  .text-customer-btn {
+    background-color: #00B0FA;
+    border: none;
+    border-radius: 30px;
+    color: #FFFFFF;
+    padding: 1.5rem 4.5rem;
+    font-size: 110%;
+  }
+}
+
+.text-customer-subheader {
+  color: #FFFFFF;
+  font-size: 125%;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.charge-warning {
+  color: white;
+  font-size: 90%;
+  margin-top: 1rem;
+  padding: 0 2.5%;
+}

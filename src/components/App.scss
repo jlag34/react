@@ -1,0 +1,120 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  background-color: gray;
+  padding-top: 2.5%;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.btn {
+  background-color: #00B0FA;
+  border: none;
+  border-radius: 30px;
+  color: #FFFFFF;
+  text-transform: capitalize;
+}
+
+.primary-btn {
+  @extend .btn;
+  font-size: 125%;
+  padding: 3% 0;
+  width: 50%;
+}
+
+.center {
+  text-align: center;
+}
+
+.page-body {
+  max-width: 700px;
+  margin: auto;
+}
+
+/*
+**
+*** Fields
+**
+*/
+
+.field {
+  padding: 0 2.5%;
+  
+  &:not(:last-child) {
+    margin-bottom: 1%;
+  }
+  
+  .label {
+    color: #FFFFFF;
+    font-size: 80%;
+    opacity: .5;
+    padding: 6px 6px 4px 0px;
+    text-transform: uppercase;
+  }
+  
+  input {
+    background: rgba(0,0,0,0);
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255, .3);
+    color: #FFFFFF;
+    font-size: 110%;
+    padding-bottom: 1.5%;
+    width: 100%;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  input[type='checkbox'] {
+    margin-right: 7.5%;
+    width: auto;
+  }
+
+  .checkbox-label {
+    color: #FFFFFF;
+  }
+}
+
+.btn-wrapper {
+  bottom: 2rem;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+
+@keyframes spin {
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
+}
+
+.icons-style {
+  color: #D5D5D5;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
+.faCog:before {
+  content: '\f013';
+  display: inline-block;
+  animation-name: spin;
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.faCogWhite:before {
+  @extend .icons-style;
+  @extend .faCog;
+  color: #FFFFFF;
+}
