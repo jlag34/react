@@ -8,20 +8,20 @@ import { StripeProvider } from 'react-stripe-elements';
 import App from './components/App';
 // import reducers from './reducers';
 
-import { injectGlobal } from 'styled-components';
-import avenir from '../font/AvenirLTStd-Light.otf';
-injectGlobal`
-	@font-face {
-		font-family: 'Avenir';
-		src: url(${avenir}) format('opentype');
-		font-weight: normal;
-		font-style: normal;
-	}
+// import { injectGlobal } from 'styled-components';
+// import avenir from '../font/AvenirLTStd-Light.otf';
+// injectGlobal`
+// 	@font-face {
+// 		font-family: 'Avenir';
+// 		src: url(${avenir}) format('opentype');
+// 		font-weight: normal;
+// 		font-style: normal;
+// 	}
 
-	* {
-		font-family: 'Avenir', sans-serif;
-	}
-`;
+// 	* {
+// 		font-family: 'Avenir', sans-serif;
+// 	}
+// `;
 
 
 // const createStoreWithMiddleware = applyMiddleware(promiseMiddleware)(createStore);
