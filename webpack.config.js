@@ -8,7 +8,7 @@ const VENDOR_LIBS = [
 
 module.exports = {
   entry: {
-    bundle: './client/src/index.jsx',
+    bundle: './src/index.js',
     vendor: VENDOR_LIBS
   },
   output: {
