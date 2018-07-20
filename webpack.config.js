@@ -2,7 +2,9 @@ var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const VENDOR_LIBS = [ 'react', 'react-dom' ];
+const VENDOR_LIBS = [
+  'react'
+];
 
 module.exports = {
   entry: {
@@ -19,16 +21,12 @@ module.exports = {
     rules: [
       {
         use: 'babel-loader',
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/
       },
       {
         use: ['style-loader', 'css-loader', "sass-loader"],
         test: /\.scss$/
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: "file-loader"
       },
       {
         test: /\.(jpe?g|png|gif|svg|)$/,
@@ -50,7 +48,9 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html'
-    })
-  ]
+      template: './client/src/index.html'
+    }),
+    // new webpack.HotModuleReplacementPlugin()
+  ],
+  devtool: 'inline-source-map'
 };
