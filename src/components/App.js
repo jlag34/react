@@ -15,16 +15,16 @@ class App extends Component {
 
 		this.state = {
 			page: 1,
-			paymentAmount: 5,
+			paymentAmount: 0,
 
-			address: '10 Test Road',
-			city: 'Testville',
-			email: 'email@email.com',
-			firstName: 'Douglas',
-			lastName: 'Blank',
-			phone: '508-453-2342',
-			state: 'MA',
-			zipCode: '01534'
+			address: '',
+			city: '',
+			email: '',
+			firstName: '',
+			lastName: '',
+			phone: '',
+			state: '',
+			zipCode: ''
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -33,8 +33,9 @@ class App extends Component {
 	}
 
 	componentDidMount() {
+		const receipt = window.location.search.slice(1).split('=')[1];
 		axios.get('https://97ni6yjcn4.execute-api.us-east-2.amazonaws.com/dev/v1/text_sale', {
-			params: { receipt: 'b8dbb44f-3668-4d0d-98fd-bb2aacffafb5' }
+			params: { receipt }
 		}).then(userData => {
 			if (userData.status === 200) {
 				this.setState({
@@ -103,12 +104,20 @@ class App extends Component {
     });
   }
 
-
 	render() {
+
+		const bgImage = (
+			<div className="image-parent">
+				<div className="image-opacity"></div>
+				<div className="image-style image-large"></div>
+			</div>
+		);
+
 		const { page } = this.state;
 		if (page === 1) {
 			return (
 				<div className="page-body">
+					{bgImage}
 					<CustomerForm
 						{...this.state}
 						handleChange={this.handleChange}
@@ -120,6 +129,7 @@ class App extends Component {
 		if (page === 2) {
 			return (
 				<div className="page-body">
+					{bgImage}
 					<Elements>
 						<Checkout
 							handleSale={this.handleSale}
@@ -131,6 +141,7 @@ class App extends Component {
 		} else {
 			return (
 				<div className="page-body">
+					{bgImage}
 					<Receipt {...this.state} {...this.state.saleData} />
 				</div>
 			);

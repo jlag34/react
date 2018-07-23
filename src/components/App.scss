@@ -4,8 +4,7 @@ html, body, #root {
 }
 
 #root {
-  background-color: gray;
-  padding-top: 2.5%;
+  background-color: #1E536A;
 }
 
 .display-flex {
@@ -34,6 +33,39 @@ html, body, #root {
 .page-body {
   max-width: 700px;
   margin: auto;
+}
+
+.image-parent {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  max-width: 700px;
+  margin: auto;
+
+  .image-opacity {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    background-color: #00B0FA;
+    z-index: -3;
+  }
+
+  .image-style {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    opacity: 0.7;
+    position: absolute;
+    width: 100%;
+    z-index: -2;
+  }
+
+  .image-large {
+    // background-image: url("../static/images/image-large.jpg");
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
 }
 
 /*
@@ -81,9 +113,16 @@ html, body, #root {
   }
 }
 
+.btn-container {
+  // margin: auto;
+  // max-width: 700px;
+}
+
 .btn-wrapper {
   bottom: 2rem;
+  padding: 0 2.5%;
   position: absolute;
+  max-width: 700px;
   text-align: center;
   width: 100%;
 }

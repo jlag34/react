@@ -49,6 +49,7 @@ const CustomerForm = props => {
         </div>
       </div>
       <div className="btn-wrapper" style={{ zIndex: 2}}>
+      <div className="btn-container">
         <div>
           <button
             className="primary-btn"
@@ -58,6 +59,7 @@ const CustomerForm = props => {
             Pay Now
           </button>
         </div>
+      </div>
       </div>
     </div>
   );

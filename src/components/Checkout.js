@@ -77,17 +77,20 @@ class Checkout extends Component {
           </div>
         </div>
         <div className="charge-warning">* A $1.00 service charge has been added</div>
+        
         <div className="btn-wrapper">
+        <div className="btn-container">
           <div>
             <button
               className="primary-btn"
               onClick={this.creditPayment}
               style={{ fontSize: "100%" }}
             >
-              {!this.state.loading && `CHARGE ${price}`}
+              {!this.state.loading && `CHARGE $${price}`}
               {this.state.loading && <span className="faCogWhite" style={{fontSize: "100%"}}></span>}
             </button>
           </div>
+        </div>
         </div>
       </div>
     );
