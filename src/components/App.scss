@@ -159,3 +159,9 @@ html, body, #root {
   @extend .faCog;
   color: #FFFFFF;
 }
+
+@media screen and (max-height: 365px) {
+  .btn-wrapper {
+    display: none;
+  }
+}
