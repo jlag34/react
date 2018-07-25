@@ -6,6 +6,7 @@ import './App.scss';
 
 import Checkout from './Checkout';
 import CustomerForm from './CustomerForm';
+import Error from './Error';
 import Receipt from './Receipt';
 
 
@@ -16,6 +17,7 @@ class App extends Component {
 		this.state = {
 			page: 1,
 			paymentAmount: 0,
+			loading: true,
 
 			address: '',
 			city: '',
@@ -33,18 +35,29 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		const receipt = window.location.search.slice(1).split('=')[1];
-		axios.get('https://97ni6yjcn4.execute-api.us-east-2.amazonaws.com/dev/v1/text_sale', {
-			params: { receipt }
-		}).then(userData => {
-			if (userData.status === 200) {
-				this.setState({
-					...userData.data.customer,
-					paymentAmount: (userData.data.unitPrice * userData.data.unitsSold) + 1,
-					saleData: userData.data
-				});
-			}
-		});
+		if (
+			window.location.search.length === 0 ||
+			window.location.search.slice(1).split('=')[0] !== 'receipt'
+		) {
+			this.setState({ error: 1, loading: false });
+		} else {
+			const receipt = window.location.search.slice(1).split('=')[1];
+			axios.get('https://lonsqvyho4.execute-api.us-east-2.amazonaws.com/prod/v1/text_sale', {
+				params: { receipt }
+			}).then(userData => {
+				if (userData.status === 200) {
+					this.setState({
+						loading: false,
+						page: userData.status === 'COMPLETE' ? 3 : 1,
+						paymentAmount: (userData.data.unitPrice * userData.data.unitsSold) + 1,
+						saleData: userData.data,
+						...userData.data.customer
+					});
+				} else {
+					this.setState({ error: 2, loading: false });
+				}
+			});
+		}
 	}
 
 	handleChange(e,t) {
@@ -92,7 +105,7 @@ class App extends Component {
     // if (creditSaleId) { data.stripe = creditSaleId; }
 
 
-    axios.post('https://97ni6yjcn4.execute-api.us-east-2.amazonaws.com/dev/v1/sale', {
+    axios.post('https://lonsqvyho4.execute-api.us-east-2.amazonaws.com/prod/v1/sale', {
       ...data
     })
     .then(res => {
@@ -113,7 +126,17 @@ class App extends Component {
 			</div>
 		);
 
-		const { page } = this.state;
+		const { error, loading, page } = this.state;
+
+		if (loading) {
+			return null;
+		}
+
+		if (error && error > 0) {
+			console.log('ERROR: ', error);
+			return <Error error={error} />
+		}
+
 		if (page === 1) {
 			return (
 				<div className="page-body">

@@ -34,7 +34,7 @@ class Checkout extends Component {
     if (this.state.loading === true) return;
     this.setState({ loading: true }, () => {
       this.props.stripe.createToken({ type: 'card', name: this.props.name }).then(({ token }) => {
-        const url = 'https://97ni6yjcn4.execute-api.us-east-2.amazonaws.com/dev/v1/charge';
+        const url = 'https://lonsqvyho4.execute-api.us-east-2.amazonaws.com/prod/v1/charge';
         const price = Number(this.props.paymentAmount) * 100;
         axios.post(url, {
           amount: price,

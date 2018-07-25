@@ -3,7 +3,6 @@ import Header from './Header';
 import './Receipt.scss';
 
 const Receipt = props => {
-  console.log('PROPS: ', props);
   const { paymentType, receipt, unitsSold } = props.saleData;
   const { address, city, email, firstName, lastName, phone, state, zipCode } = props;
 

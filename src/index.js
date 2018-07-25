@@ -27,7 +27,7 @@ import App from './components/App';
 // const createStoreWithMiddleware = applyMiddleware(promiseMiddleware)(createStore);
 
 ReactDOM.render(
-	<StripeProvider apiKey="pk_test_JHWMGFHUtZrtt22a4ho8JhiM">
+	<StripeProvider apiKey="pk_live_7wMsesT6iwDsbm2mjYae9lzX">
 		<App />
 	</StripeProvider>
 	, document.querySelector('#root')
