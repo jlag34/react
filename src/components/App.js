@@ -139,7 +139,8 @@ class App extends Component {
 
 		if (page === 1) {
 			return (
-				<div className="page-body">
+				<div>
+				{/* <div className="page-body"> */}
 					{bgImage}
 					<CustomerForm
 						{...this.state}
